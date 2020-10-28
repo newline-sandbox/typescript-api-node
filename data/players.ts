@@ -3,10 +3,10 @@ import PlayerInfo from "../types/PlayerInfo";
 const players: PlayerInfo[] = [
   {
     id: 1,
-    playerName: "string",
-    team: "string",
+    playerName: "Aaron Rodgers",
+    team: "Green Bay Packers",
     jerseyNumber: 1,
-    position: "string",
+    position: "Quarterback",
   },
   {
     id: 2,

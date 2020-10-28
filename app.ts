@@ -28,5 +28,17 @@ app.get('/players', (req, res) => {
   res.status(200).json(players)
 })
 
+// TODO: Add new player
+app.get('/players', (req, res) => {
+  const players = PLAYERS
+  res.status(200).json(players)
+})
+
+// TODO: Delete player by ID
+app.get('/players', (req, res) => {
+  const players = PLAYERS
+  res.status(200).json(players)
+})
+
 // Set server to listen on defined port
 app.listen(port, () => console.log(`Server running on localhost:${port}`))
