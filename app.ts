@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'path'
 import players from './data/players'
+import PlayerInfo from './types/PlayerInfo'
 
 const app = express()
 const port = 3000
@@ -29,12 +30,25 @@ app.get('/players', (req, res) => {
 })
 
 // TODO: Add new player
+app.post('/players', (req, res) => {
+  const newPlayer: PlayerInfo = {
+    id: PLAYERS[-1].id + 1,
+    playerName: req.body.playerName,
+    team: req.body.team,
+    jerseyNumber: req.body.jerseyNumber,
+    position: req.body.position,
+  }
+  PLAYERS.push(newPlayer)
+  res.status(201).json({ Result: 'Player saved', player: newPlayer })
+})
+
+// TODO: Delete player by ID
 app.get('/players', (req, res) => {
   const players = PLAYERS
   res.status(200).json(players)
 })
 
-// TODO: Delete player by ID
+// TODO: Update player by ID
 app.get('/players', (req, res) => {
   const players = PLAYERS
   res.status(200).json(players)
