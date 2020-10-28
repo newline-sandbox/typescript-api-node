@@ -45,7 +45,7 @@ app.get('/players', (req, res) => {
   res.status(200).json(players)
 })
 
-// TODO: Add new player
+// Add new player
 app.post('/players', (req, res) => {
   const newPlayer: PlayerInfo = {
     id: PLAYERS[PLAYERS.length - 1].id + 1,
@@ -58,10 +58,12 @@ app.post('/players', (req, res) => {
   res.status(201).json({ Result: 'Player saved', player: newPlayer })
 })
 
-// TODO: Delete player by ID
-app.get('/players', (req, res) => {
-  const players = PLAYERS
-  res.status(200).json(players)
+// Delete player by ID
+app.delete('/players/:id', (req, res) => {
+  const playerId = Number(req.params.id)
+  const player = PLAYERS.find(entry => entry.id === playerId)
+  let deletedPlayer = PLAYERS.splice(PLAYERS.indexOf(player), 1)
+  res.status(200).json({ Result: 'Player deleted', deleted: deletedPlayer })
 })
 
 // TODO: Update player by ID
