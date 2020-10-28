@@ -22,5 +22,11 @@ app.get('/players/:id', (req, res) => {
   res.status(200).json(player)
 })
 
+// Get all players
+app.get('/players', (req, res) => {
+  const players = PLAYERS
+  res.status(200).json(players)
+})
+
 // Set server to listen on defined port
 app.listen(port, () => console.log(`Server running on localhost:${port}`))
