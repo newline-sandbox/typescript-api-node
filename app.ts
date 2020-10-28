@@ -22,7 +22,7 @@ app.use(
   })
 )
 
-const PLAYERS = players
+const PLAYERS: PlayerInfo[] = players
 
 app.use('/dist', express.static('dist'))
 
@@ -34,14 +34,14 @@ app.get('/', (req, res) => {
 
 // Get a single player
 app.get('/players/:id', (req, res) => {
-  const playerId = Number(req.params.id)
-  const player = PLAYERS.find(entry => entry.id === playerId)
+  const playerId: number = Number(req.params.id)
+  const player: PlayerInfo = PLAYERS.find(entry => entry.id === playerId)
   res.status(200).json(player)
 })
 
 // Get all players
 app.get('/players', (req, res) => {
-  const players = PLAYERS
+  const players: PlayerInfo[] = PLAYERS
   res.status(200).json(players)
 })
 
@@ -60,16 +60,10 @@ app.post('/players', (req, res) => {
 
 // Delete player by ID
 app.delete('/players/:id', (req, res) => {
-  const playerId = Number(req.params.id)
-  const player = PLAYERS.find(entry => entry.id === playerId)
+  const playerId: number = Number(req.params.id)
+  const player: PlayerInfo = PLAYERS.find(entry => entry.id === playerId)
   let deletedPlayer = PLAYERS.splice(PLAYERS.indexOf(player), 1)
   res.status(200).json({ Result: 'Player deleted', deleted: deletedPlayer })
-})
-
-// TODO: Update player by ID
-app.get('/players', (req, res) => {
-  const players = PLAYERS
-  res.status(200).json(players)
 })
 
 // Set server to listen on defined port
