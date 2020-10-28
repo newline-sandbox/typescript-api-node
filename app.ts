@@ -1,10 +1,26 @@
 import express from 'express'
+import cors from 'cors'
 import path from 'path'
 import players from './data/players'
 import PlayerInfo from './types/PlayerInfo'
 
+const bodyParser = require('body-parser')
+
 const app = express()
 const port = 3000
+
+// Allow cross-origin API requests
+app.use(cors())
+
+// Use bodyParser middleware to make
+// Request json available
+// In the `request.body`
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+)
 
 const PLAYERS = players
 
@@ -32,7 +48,7 @@ app.get('/players', (req, res) => {
 // TODO: Add new player
 app.post('/players', (req, res) => {
   const newPlayer: PlayerInfo = {
-    id: PLAYERS[-1].id + 1,
+    id: PLAYERS[PLAYERS.length - 1].id + 1,
     playerName: req.body.playerName,
     team: req.body.team,
     jerseyNumber: req.body.jerseyNumber,

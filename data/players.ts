@@ -5,15 +5,22 @@ const players: PlayerInfo[] = [
     id: 1,
     playerName: "Aaron Rodgers",
     team: "Green Bay Packers",
-    jerseyNumber: 1,
-    position: "Quarterback",
+    jerseyNumber: 12,
+    position: "Quarterback"
   },
   {
     id: 2,
-    playerName: "string",
-    team: "string",
-    jerseyNumber: 1,
-    position: "string",
+    playerName: "Todd Gurley",
+    team: "Atlanta Falcons",
+    jerseyNumber: 21,
+    position: "Running Back"
+  },
+  {
+    id: 3,
+    playerName: "Travis Kelce",
+    team: "Kansas City Chiefs",
+    jerseyNumber: 87,
+    position: "Tight End"
   }
 ]
 
