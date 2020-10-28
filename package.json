@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node --project tsconfig-server.json app.ts",
+    "build-client": "tsc --project tsconfig-client.json"
   },
   "keywords": [],
   "author": "",
